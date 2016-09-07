@@ -468,7 +468,7 @@ textarea {
   transition-duration: 0.3s;
 }
 
-#table td:hover { 
+#table td.white:hover { 
     background-color: rgba(231, 231, 231, 0.25);
     color: white;
 }
