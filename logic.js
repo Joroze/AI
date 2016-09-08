@@ -22,9 +22,14 @@ while (myNode.firstChild) {
 rows = $("#rows-field").val();
 cols = $("#cols-field").val();
 
-if (rows == "" || cols == "")
+if (rows == "")
 {
-    showalert("<strong>Warning!</strong> Please add inputs to the rows/columns field(s).","alert-danger");
+    showalert("<strong>Error!</strong> The <strong>rows</strong> field is empty.","alert-danger");
+}
+
+if (cols == "")
+{
+    showalert("<strong>Error!</strong> The <strong>columns</strong> field is empty.","alert-danger");
 }
 
 concentration = $("#concentration-field").val();
