@@ -22,7 +22,7 @@ while (myNode.firstChild) {
 rows = $("#rows-field").val();
 cols = $("#cols-field").val();
 
-if (rows == null || cols == null)
+if (rows == 1 || cols == 1)
 {
     showalert("Warning! Please add inputs to the rows/columns field(s).","alert-danger");
 }
