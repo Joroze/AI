@@ -11,6 +11,12 @@ while (myNode.firstChild) {
 rows = $("#rows-field").val();
 cols = $("#cols-field").val();
 
+if (rows == nullptr || cols == nullptr)
+{
+    showalert("Warning! Please add inputs to the rows/columns field(s).","alert-error");
+    return;
+}
+
 concentration = $("#concentration-field").val();
 
 table = document.getElementById("table");
@@ -39,14 +45,6 @@ if ($(this).hasClass('white'))
 		$(this).css("background-color","#EB0955");
   }
 });
-
-/**
-  Bootstrap Alerts -
-  Function Name - showalert()
-  Inputs - message,alerttype
-  Example - showalert("Invalid Login","alert-error")
-  Types of alerts -- "alert-error","alert-success","alert-info"
-  Required - You only need to add a alert_placeholder div in your html page wherever you want to display these alerts
 
   function showalert(message,alerttype) {
 
