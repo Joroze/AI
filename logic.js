@@ -22,16 +22,22 @@ while (myNode.firstChild) {
 rows = $("#rows-field").val();
 cols = $("#cols-field").val();
 
-if (rows == "")
+if (rows == "" && cols == "")
 {
-    showalert("<strong>Error!</strong> The <strong>rows</strong> field is empty.","alert-danger");
+    showalert("<strong>Error!</strong> The <strong>rows</strong> and <strong>cols</strong> fields are empty.","alert-danger");
 }
-
-if (cols == "")
+else
 {
-    showalert("<strong>Error!</strong> The <strong>columns</strong> field is empty.","alert-danger");
-}
+    if (rows == "")
+    {
+        showalert("<strong>Error!</strong> The <strong>rows</strong> field is empty.","alert-danger");
+    }
 
+    if (cols == "")
+    {
+        showalert("<strong>Error!</strong> The <strong>columns</strong> field is empty.","alert-danger");
+    }
+}
 concentration = $("#concentration-field").val();
 
 table = document.getElementById("table");
