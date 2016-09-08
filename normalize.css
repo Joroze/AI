@@ -499,3 +499,10 @@ td.black
     color: inherit;
     background-color: rgba(255, 255, 255, 0.94);
 }
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    text-align: center;
+}
