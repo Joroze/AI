@@ -24,7 +24,7 @@ cols = $("#cols-field").val();
 
 if (rows == "" || cols == "")
 {
-    showalert("Warning! Please add inputs to the rows/columns field(s).","alert-danger");
+    showalert("<strong>Warning!</strong> Please add inputs to the rows/columns field(s).","alert-danger");
 }
 
 concentration = $("#concentration-field").val();
