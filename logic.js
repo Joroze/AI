@@ -24,18 +24,18 @@ cols = $("#cols-field").val();
 
 if (rows == "" && cols == "")
 {
-    showalert("<strong>Error!</strong> The <strong>rows</strong> and <strong>cols</strong> fields are empty.","alert-danger");
+    showalert("<strong>Error!</strong> The <strong>Rows</strong> and <strong>Columns</strong> fields are empty.","alert-danger");
 }
 else
 {
     if (rows == "")
     {
-        showalert("<strong>Error!</strong> The <strong>rows</strong> field is empty.","alert-danger");
+        showalert("<strong>Error!</strong> The <strong>Rows</strong> field is empty.","alert-danger");
     }
 
     if (cols == "")
     {
-        showalert("<strong>Error!</strong> The <strong>columns</strong> field is empty.","alert-danger");
+        showalert("<strong>Error!</strong> The <strong>Columns</strong> field is empty.","alert-danger");
     }
 }
 concentration = $("#concentration-field").val();
