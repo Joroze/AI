@@ -506,3 +506,7 @@ td.black
     border-color: #ebccd1;
     text-align: center;
 }
+
+.navbar-inverse .navbar-link:hover {
+    text-decoration: none;
+}
