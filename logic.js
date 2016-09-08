@@ -12,10 +12,6 @@ var table;
     }, 5000);
   }
 
-
-});
-
-
 function generateArray() {
 
 var myNode = document.getElementById("table");
