@@ -28,8 +28,7 @@ cols = $("#cols-field").val();
 
 if (rows == nullptr || cols == nullptr)
 {
-    showalert("Warning! Please add inputs to the rows/columns field(s).","alert-error");
-    return;
+    showalert("Warning! Please add inputs to the rows/columns field(s).","alert-danger");
 }
 
 concentration = $("#concentration-field").val();
