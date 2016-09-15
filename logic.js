@@ -60,10 +60,11 @@ document.body.appendChild(table);
 }
 
 
-$(document).on("click", "td", function(){
+$(document).on("click", "td", function(event){
 if ($(this).hasClass('white'))
 	{
-		$(this).css("background-color","#EB0955");
+		$( this ).toggleClass("black");
+		
   }
 });
 
