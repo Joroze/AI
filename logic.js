@@ -66,3 +66,9 @@ if ($(this).hasClass('white'))
 		$(this).css("background-color","#EB0955");
   }
 });
+
+$(document).on('click', 'td', function(event) {
+    var rowindex = $(this).closest('tr').index();
+    var colindex = $(this).closest('td').index();    
+    alert("(" + rowindex + ", " + colindex + ")" );
+});
