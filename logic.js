@@ -63,8 +63,7 @@ document.body.appendChild(table);
 $(document).on("click", "td", function(event){
 if ($(this).hasClass('white'))
 	{
-		$( this ).toggleClass("black");
-		
+		$( this ).toggleClass("pink");
   }
 });
 
