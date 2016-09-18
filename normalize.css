@@ -471,30 +471,28 @@ textarea {
 #table td.white:hover { 
     background-color: rgba(231, 231, 231, 0.25);
     color: white;
-    cursor: pointer;
 }
 
 #table td.green:hover { 
     background-color: #556B2F;
     color: green;
-    cursor: pointer;
 }
 
 #table td.red:hover { 
     background-color: #B22222;
     color: red;
-    cursor: pointer;
 }
 
-.deny 
+td.deny 
 {
+  background-color: white !important;    
   cursor: not-allowed !important;
-  background-color: white !important;
 }
 
 td.white
 {
   background-color: white;
+  cursor: pointer;
 }
 
 td.black
@@ -505,11 +503,13 @@ td.black
 td.green
 {
   background-color: green;
+  cursor: pointer;
 }
 
 td.red
 {
   background-color: red;
+  cursor: pointer;
 }
 
 .input-group-sm>.form-control, .input-group-sm>.input-group-addon, .input-group-sm>.input-group-btn>.btn {
