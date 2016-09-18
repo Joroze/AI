@@ -248,9 +248,9 @@ $(document).ready(function blink() {
     $('span.blinking').fadeOut(1000).fadeIn(1000, blink); 
 });
 
- $("button").on("click", function (event) {         
-            if ($(this).hasClass("disabled")) {
-                event.stopPropagation()
+ $(".btn").on("click", function (event) {         
+            if ($(".btn").hasClass("disabled")) {
+                event.stopPropagation();
             } else {
                 $('#applyRemoveDialog').modal("show");
             }
