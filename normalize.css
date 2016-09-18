@@ -543,3 +543,7 @@ td.red
     -webkit-transition: .5s;
     transition: .5s;
 }
+
+.blinking {
+  color: white;
+}
