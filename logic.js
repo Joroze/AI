@@ -1,4 +1,7 @@
-$('#viewArrayBtn').hide();
+$(function() {
+    $('#viewArrayBtn').hide();
+});
+
 
 var myTableArray = [];
 var selectStack = 0;
