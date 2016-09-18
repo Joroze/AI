@@ -62,6 +62,17 @@ function BreadthFirst() {
 }
 
 function dumpArray(){
+
+var arrayModalText = "";
+  
+  for (var i = 0; i < rows; i++) {
+     for (var j = 0; j < cols; j++) {
+       arrayModalText += myTableArray[i][j] + " ";
+     }
+    arrayModalText+="<br>";
+  }
+  
+$('#arrayModalText').html(arrayModalText);  
   
 var table = document.getElementById("table");
 while (table.firstChild != null) {
@@ -102,6 +113,7 @@ document.body.appendChild(table);
 
 function generateArray() {
 
+$("#viewArrayBtn").removeClass("disabled");  
 selectStack = 0;
 rows = $("#rows-field").val();
 cols = $("#cols-field").val();
@@ -151,6 +163,43 @@ dumpArray();
   
 }
 
+
+$(document).on({
+    mouseenter: function () {
+        //stuff to do on mouse enter
+    var hovered_row = $(this).closest('tr').index();
+    var hovered_col = $(this).closest('td').index();
+    
+    if (selectStack == 2 && myTableArray[hovered_row][hovered_col].getColor() == "white")
+      {
+        $(this).addClass('deny');
+      }
+      
+    },
+    mouseleave: function () {
+        //stuff to do on mouse leave
+        $(this).removeClass('deny');
+    }
+}, "td"); //pass the element as an argument to .on
+
+/*
+$(document).ready(function(){
+  $("td").hover(function()
+  {
+    
+    var hovered_row = $(this).closest('tr').index();
+    var hovered_col = $(this).closest('td').index();
+    
+    alert(hovered_row + ", " + hovered_col);
+    if (selectStack == 2 && myTableArray[hovered_row][hovered_col].getColor() == "white")
+      {
+        $(this).toggleClass('deny');
+      }
+  });
+});
+
+*/
+
 $(document).on("click", "td", function(event){
 
 selected_row = $(this).closest('tr').index();
@@ -177,6 +226,8 @@ if ($(this).hasClass('white'))
 	{
     if (selectStack > 1)
       {
+        showalert("<strong>Error!</strong> Remove the  <strong>red</strong> block first!","alert-danger");
+    
         return;
       }
     myTableArray[selected_row][selected_col].setColor("white")
