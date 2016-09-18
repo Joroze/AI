@@ -248,10 +248,10 @@ $(document).ready(function blink() {
     $('span.blinking').fadeOut(1000).fadeIn(1000, blink); 
 });
 
- $(".btn").on("click", function (event) {         
+$(".btn").click(function(event){
             if ($(this).hasClass("disabled")) {
                 event.stopImmediatePropagation()
             } else {
                 $('#applyRemoveDialog').modal("show");
             }
-        });
+});
