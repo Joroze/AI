@@ -196,8 +196,3 @@ if ($(this).hasClass('white'))
    dumpArray();
   
 });
-
-
-
-
-
