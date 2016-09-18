@@ -1,3 +1,5 @@
+$('#viewArrayBtn').hide();
+
 var myTableArray = [];
 var selectStack = 0;
 var selected_row;
@@ -99,7 +101,7 @@ function dumpArray() {
 
 function generateArray() {
 
-  $("#viewArrayBtn").removeClass("disabled");
+  $('#viewArrayBtn').show();
   selectStack = 0;
   rows = $("#rows-field").val();
   cols = $("#cols-field").val();
