@@ -3,6 +3,18 @@ var selectStack = 0;
 var selected_row;
 var selected_col;
 
+$('.btn').on('click',function(){
+    if($(this).hasClass('disabled')) {
+     $(this).attr('data-target', '_blank');
+    }
+  
+  else 
+    {
+      $(this).attr('data-target', '#myModal');
+    }
+  
+});
+
 var Cell = (function() {
   // "private" variables 
   //var color;
@@ -195,14 +207,3 @@ $(document).ready(function blink() {
   $('span.blinking').fadeOut(1000).fadeIn(1000, blink);
 });
 
-$('.btn').on('click',function(){
-    if($(this).hasClass('disabled')) {
-     $(this).attr('data-target', '_blank');
-    }
-  
-  else 
-    {
-      $(this).attr('data-target', '#myModal');
-    }
-  
-});
