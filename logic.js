@@ -1,4 +1,8 @@
-var table;
+var table = document.getElementById("table");
+var myTableArray = [];
+var selectStack = 0;
+var selected_row;
+var selected_col; 
 
 var Cell = (function() {
     // "private" variables 
@@ -54,13 +58,55 @@ var Cell = (function() {
     }, 5000);
   }
 
-function generateArray() {
+function BreadthFirst() {
 
-var myNode = document.getElementById("table");
-while (myNode.firstChild) {
-    myNode.removeChild(myNode.firstChild);
 }
 
+function dumpArray(){
+  
+while (table.firstChild) {
+    table.removeChild(table.firstChild);
+}  
+  
+for (var i = 0; i < rows; i++) {
+    var tr = document.createElement('tr');
+    for (var j = 0; j < cols; j++) {
+        var td = document.createElement('td');
+        if (myTableArray[i][j].getColor() == "white") {
+            td.className = "white";
+        }
+      
+      else if (myTableArray[i][j].getColor() == "green")
+        {
+            td.className = "green";
+        }
+      
+      else if (myTableArray[i][j].getColor() == "red")
+        {
+            td.className = "red";
+        }
+      
+      else 
+        {
+            td.className = "black";
+        }
+        tr.appendChild(td);
+    }
+    table.appendChild(tr);
+}
+document.body.appendChild(table);
+  
+  
+}
+
+
+function generateArray() {
+
+while (table.firstChild) {
+    table.removeChild(table.firstChild);
+}
+
+selectStack = 0;
 rows = $("#rows-field").val();
 cols = $("#cols-field").val();
 
@@ -83,7 +129,7 @@ else
 concentration = $("#concentration-field").val();
 
   
-  var myTableArray = [];
+  myTableArray = [];
   var color;
   
   for (var i = 0; i < rows; i++) {
@@ -99,62 +145,56 @@ concentration = $("#concentration-field").val();
             myTableArray[i][j] = new Cell(i, j, color);
     }
 }
-  
-table = document.getElementById("table");
-for (var i = 0; i < rows; i++) {
-    var tr = document.createElement('tr');
-    for (var j = 0; j < cols; j++) {
-        var td = document.createElement('td');
-        if (myTableArray[i][j].getColor() == "white") {
-            td.className = "white";
-        } else {
-            td.className = "black";
-        }
-        tr.appendChild(td);
-    }
-    table.appendChild(tr);
-}
-document.body.appendChild(table);
-
-
 
   
-/*$("#table tr").each(function() { 
-    var arrayOfThisRow = [];
-    var tableData = $(this).find('td');
-    if (tableData.length > 0) {
-        tableData.each(function() {
-          if( $(this).hasClass("white"))
-             {
-             arrayOfThisRow.push("white");
-             }
-          else if( $(this).hasClass("black"))
-             {
-             arrayOfThisRow.push("black");
-             }
-           });
-        myTableArray.push(arrayOfThisRow);
-    }
-});
-*/
-
-alert(myTableArray); // alerts the entire array
+dumpArray();  
+  
+//alert(myTableArray); // alerts the entire array
 
 //alert(myTableArray[1][0]); // Alerts the first tabledata of the first tablerow
   
 }
 
-
 $(document).on("click", "td", function(event){
+
+selected_row = $(this).closest('tr').index();
+selected_col = $(this).closest('td').index();
+  
 if ($(this).hasClass('white'))
 	{
-		$( this ).toggleClass("pink");
-		
-    var rowindex = $(this).closest('tr').index();
-    var colindex = $(this).closest('td').index();    
-    alert("(" + rowindex + ", " + colindex + ")" );
 
+    if (selectStack == 0)
+      {
+        myTableArray[selected_row][selected_col].setColor("green");
+        selectStack++;
+      }
+    
+    else if (selectStack == 1)
+      {
+        myTableArray[selected_row][selected_col].setColor("red");
+        selectStack++;  
+      }
+	     
   }
+		
+  else if ($(this).hasClass('green'))
+	{
+    if (selectStack > 1)
+      {
+        return;
+      }
+    myTableArray[selected_row][selected_col].setColor("white")
+    selectStack = 0;
+  }
+  
+  else if ($(this).hasClass('red'))
+	{
+    myTableArray[selected_row][selected_col].setColor("white")
+    selectStack--;
+  }
+    
+   dumpArray();
+  
 });
 
 
