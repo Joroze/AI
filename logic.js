@@ -1,4 +1,4 @@
-var table = document.getElementById("table");
+var table = document.getElementById('table');
 var myTableArray = [];
 var selectStack = 0;
 var selected_row;
