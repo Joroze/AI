@@ -250,7 +250,7 @@ $(document).ready(function blink() {
 
 $(".btn").click(function(event){
             if ($(this).hasClass("disabled")) {
-                event.stopImmediatePropagation()
+                event.stopImmediatePropagation();
             } else {
                 $('#applyRemoveDialog').modal("show");
             }
