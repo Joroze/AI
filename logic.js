@@ -249,5 +249,9 @@ $(document).ready(function blink() {
 });
 
  $(".btn").on("click", function (event) {         
-                event.stopPropagation();
+            if ($(this).hasClass("disabled")) {
+                event.stopImmediatePropagation()
+            } else {
+                $('#applyRemoveDialog').modal("show");
+            }
         });
