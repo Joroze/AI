@@ -64,7 +64,7 @@ function BreadthFirst() {
 
 function dumpArray(){
   
-while (table.firstChild) {
+while (table.firstChild != null) {
     table.removeChild(table.firstChild);
 }  
   
@@ -102,7 +102,7 @@ document.body.appendChild(table);
 
 function generateArray() {
 
-while (table.firstChild) {
+while (table.firstChild != null) {
     table.removeChild(table.firstChild);
 }
 
