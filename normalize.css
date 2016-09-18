@@ -486,6 +486,12 @@ textarea {
     cursor: pointer;
 }
 
+.deny 
+{
+  cursor: not-allowed !important;
+  background-color: white !important;
+}
+
 td.white
 {
   background-color: white;
@@ -546,4 +552,8 @@ td.red
 
 .blinking {
   color: white;
+}
+
+.modal p {
+    word-wrap: break-word;
 }
