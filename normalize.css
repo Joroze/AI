@@ -471,6 +471,19 @@ textarea {
 #table td.white:hover { 
     background-color: rgba(231, 231, 231, 0.25);
     color: white;
+    cursor: pointer;
+}
+
+#table td.green:hover { 
+    background-color: #556B2F;
+    color: green;
+    cursor: pointer;
+}
+
+#table td.red:hover { 
+    background-color: #B22222;
+    color: red;
+    cursor: pointer;
 }
 
 td.white
@@ -483,9 +496,14 @@ td.black
   background-color: black;
 }
 
-td.pink
+td.green
 {
-  background-color: #EB0955;
+  background-color: green;
+}
+
+td.red
+{
+  background-color: red;
 }
 
 .input-group-sm>.form-control, .input-group-sm>.input-group-addon, .input-group-sm>.input-group-btn>.btn {
