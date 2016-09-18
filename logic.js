@@ -195,4 +195,4 @@ if ($(this).hasClass('white'))
 
 $(document).ready(function blink() { 
     $('span.blinking').fadeOut(1000).fadeIn(1000, blink); 
-})();
+});
