@@ -193,8 +193,6 @@ if ($(this).hasClass('white'))
   
 });
 
-
-
 (function blink() { 
     $('.blinking').fadeOut(1000).fadeIn(1000, blink); 
 })();
