@@ -192,3 +192,9 @@ if ($(this).hasClass('white'))
    dumpArray();
   
 });
+
+
+
+(function blink() { 
+    $('.blinking').fadeOut(1000).fadeIn(1000, blink); 
+})();
