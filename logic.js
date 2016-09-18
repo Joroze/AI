@@ -195,10 +195,14 @@ $(document).ready(function blink() {
   $('span.blinking').fadeOut(1000).fadeIn(1000, blink);
 });
 
-$(".btn").on("click", function(event) {
-  if ($(this).hasClass("disabled")) {
-    event.stopPropagation();
-  } else {
-    $('#applyRemoveDialog').modal("show");
-  }
+$('.btn').on('click',function(){
+    if($(this).hasClass('disabled')) {
+     $(this).attr('data-target', '_blank');
+    }
+  
+  else 
+    {
+      $(this).attr('data-target', '#myModal');
+    }
+  
 });
