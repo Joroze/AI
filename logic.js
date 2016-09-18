@@ -102,10 +102,6 @@ document.body.appendChild(table);
 
 function generateArray() {
 
-while (table.firstChild != null) {
-    table.removeChild(table.firstChild);
-}
-
 selectStack = 0;
 rows = $("#rows-field").val();
 cols = $("#cols-field").val();
