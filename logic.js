@@ -1,4 +1,3 @@
-var table = document.getElementById('table');
 var myTableArray = [];
 var selectStack = 0;
 var selected_row;
@@ -64,6 +63,7 @@ function BreadthFirst() {
 
 function dumpArray(){
   
+var table = document.getElementById("table");
 while (table.firstChild != null) {
     table.removeChild(table.firstChild);
 }  
