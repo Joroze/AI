@@ -1,13 +1,3 @@
-$(function() {
-    $('#viewArrayBtn').hide();
-});
-
-
-var myTableArray = [];
-var selectStack = 0;
-var selected_row;
-var selected_col;
-
 var Cell = (function() {
   // "private" variables 
   //var color;
@@ -47,6 +37,13 @@ var Cell = (function() {
 
   return Cell;
 })();
+
+var myTableArray = [];
+var selectStack = 0;
+var selected_row;
+var selected_col;
+var startCell;
+var finishCell;
 
 function showalert(message, alerttype) {
 
@@ -91,6 +88,8 @@ function dumpArray() {
         td.className = "green";
       } else if (myTableArray[i][j].getColor() == "red") {
         td.className = "red";
+      } else if (myTableArray[i][j].getColor() == "blue") {
+        td.className = "blue";
       } else {
         td.className = "black";
       }
@@ -103,8 +102,8 @@ function dumpArray() {
 }
 
 function generateArray() {
-
-  $('#viewArrayBtn').show();
+  $("#viewArrayBtn").removeClass("disabled");
+  $("#traverseBtn").removeClass("disabled");
   selectStack = 0;
   rows = $("#rows-field").val();
   cols = $("#cols-field").val();
@@ -164,7 +163,7 @@ $(document).on({
   }
 }, "td"); //pass the element as an argument to .on
 
-$(document).on("click", "td", function(event) {
+$(document).on('click', "td", function(event) {
 
   selected_row = $(this).closest('tr').index();
   selected_col = $(this).closest('td').index();
@@ -173,11 +172,16 @@ $(document).on("click", "td", function(event) {
 
     if (selectStack == 0) {
       myTableArray[selected_row][selected_col].setColor("green");
+      startCell = myTableArray[selected_row][selected_col];
       selectStack++;
     } else if (selectStack == 1) {
       myTableArray[selected_row][selected_col].setColor("red");
+      finishCell = myTableArray[selected_row][selected_col];
       selectStack++;
     }
+      else {
+$("#table").pulse({opacity: 0.8}, {duration : 100, pulses : 5});
+      }
 
   } else if ($(this).hasClass('green')) {
     if (selectStack > 1) {
@@ -200,3 +204,180 @@ $(document).ready(function blink() {
   $('span.blinking').fadeOut(1000).fadeIn(1000, blink);
 });
 
+// Start location will be in the following format:
+// [distanceFromTop, distanceFromLeft]
+var findShortestPath = function(startCell, myTableArray) {
+  var distanceFromTop = startCell[0];
+  var distanceFromLeft = startCell[1];
+
+  // Each "location" will store its coordinates
+  // and the shortest path required to arrive there
+  var location = {
+    distanceFromTop: distanceFromTop,
+    distanceFromLeft: distanceFromLeft,
+    path: [],
+    pathCoord: [startCell[0],startCell[1]],
+    status: "Start"
+  };
+
+  // Initialize the queue with the start location already inside
+  var queue = [location];
+
+  // Loop through the grid searching for the goal
+  while (queue.length > 0) {
+    // Take the first location off the queue
+    var currentLocation = queue.shift();
+
+    // Explore North
+    var newLocation = exploreInDirection(currentLocation, 'North', myTableArray);
+    if (newLocation.status === 'Goal') {
+      highlightPath(newLocation);      
+      return newLocation.path;
+    } else if (newLocation.status === 'Valid') {
+      queue.push(newLocation);
+      
+    }
+
+    // Explore East
+    var newLocation = exploreInDirection(currentLocation, 'East', myTableArray);
+    if (newLocation.status === 'Goal') {
+      highlightPath(newLocation);
+      return newLocation.path;
+    } else if (newLocation.status === 'Valid') {
+      queue.push(newLocation);
+    }
+
+    // Explore South
+    var newLocation = exploreInDirection(currentLocation, 'South', myTableArray);
+    if (newLocation.status === 'Goal') {
+      highlightPath(newLocation);
+      return newLocation.path;
+    } else if (newLocation.status === 'Valid') {
+      queue.push(newLocation);
+    }
+
+    // Explore West
+    var newLocation = exploreInDirection(currentLocation, 'West', myTableArray);
+    if (newLocation.status === 'Goal') {
+      highlightPath(newLocation);
+      return newLocation.path;
+    } else if (newLocation.status === 'Valid') {
+      queue.push(newLocation);
+    }
+  }
+
+
+  // No valid path found
+showalert("<strong>Error!</strong> An end point <strong>cannot</strong> be found.", "alert-danger");
+  return false;
+
+};
+
+// This function will check a location's status
+// (a location is "valid" if it is on the grid, is not an "obstacle",
+// and has not yet been visited by our algorithm)
+// Returns "Valid", "Invalid", "Blocked", or "Goal"
+var locationStatus = function(location, myTableArray) {
+  var gridSize = myTableArray.length;
+  
+  var dft = location.distanceFromTop;
+  var dfl = location.distanceFromLeft;
+
+  if (location.distanceFromLeft < 0 ||
+      location.distanceFromLeft >= gridSize ||
+      location.distanceFromTop < 0 ||
+      location.distanceFromTop >= gridSize) {
+
+    // location is not on the grid--return false
+    return 'Invalid';
+  } else if (myTableArray[dft][dfl].getColor() == "red") {
+    alert("Goal FOUND");
+    return 'Goal';
+  } else if (myTableArray[dft][dfl].getColor() != "white") {
+    // location is either an obstacle or has been visited
+    return 'Blocked';
+  } else {
+    return 'Valid';
+  }
+};
+
+
+// Explores the grid from the given location in the given
+// direction
+var exploreInDirection = function(currentLocation, direction, myTableArray) {
+  var newPath = currentLocation.path.slice();
+  newPath.push(direction);
+  
+  var dft = currentLocation.distanceFromTop;
+  var dfl = currentLocation.distanceFromLeft;
+
+  if (direction === 'North') {
+    dft -= 1;
+  } else if (direction === 'East') {
+    dfl += 1;
+  } else if (direction === 'South') {
+    dft += 1;
+  } else if (direction === 'West') {
+    dfl -= 1;
+  }
+  
+  var newPathCoord = currentLocation.pathCoord.slice();
+  newPathCoord.push([dft,dfl]);
+
+
+  
+  var newLocation = {
+    distanceFromTop: dft,
+    distanceFromLeft: dfl,
+    path: newPath,
+    pathCoord: newPathCoord,
+    status: 'Unknown'
+  };
+  
+  newLocation.status = locationStatus(newLocation, myTableArray);
+
+  // If this new location is valid, mark it as 'Visited'
+  if (newLocation.status === 'Valid') {
+    myTableArray[newLocation.distanceFromTop][newLocation.distanceFromLeft].setColor("blue");
+    dumpArray();
+  }
+
+  return newLocation;
+};
+
+
+// OK. We have the functions we need--let's run them to get our shortest path!
+
+// Think of the first index as "distance from the top row"
+// Think of the second index as "distance from the left-most column"
+
+function traverse() {
+  if ($("#traverseBtn").hasClass('disabled'))   {
+    showalert("<strong>Error!</strong> You must <strong>generate</strong> a 2D Array grid first.", "alert-danger");
+    return;
+  }
+  
+  if (startCell == null)
+    {
+     showalert("<strong>Error!</strong> You must <strong>place</strong> a <strong>start position</strong> on the 2D Array grid first.", "alert-danger");
+    return;
+    }
+  
+  console.log(findShortestPath([startCell.getRow(),startCell.getCol   ()], myTableArray));
+  
+  $("#traverseBtn").addClass("disabled");
+}
+
+function highlightPath(newLocation, myTableArray)  {
+  for (var i = 0; i < newLocation.pathCoord.length; i++) {
+  alert(newLocation.pathCoord[i]);
+}
+}
+
+ $(".btn").on("click", function (event) {         
+            if ($(this).hasClass("disabled")) {
+                event.stopPropagation()
+            } else {
+                $('#applyRemoveDialog').modal("show");
+            }
+        });
