@@ -85,27 +85,15 @@
       <div class="container">
         <h1>AI Programming</h1>
         <p>
-          This <span class="project-tooltip" title="Created with HTML/CSS/JavaScript and JQuery">project</span> creates and displays a user-defined dynamic 2D array grid where the user can define the grid size and percent of randomly generated obstacles within it. The user is then be given a choice of <span class="algorithm-tooltip">algorithms</span> that traverse the grid's user-defined start and end positions.</p>
+          This <span class="project-tooltip">project</span> creates and displays a user-defined dynamic 2D array grid where the user can define the grid size and percent of randomly generated obstacles within it. The user is then be given a choice of <span class="algorithm-tooltip">algorithms</span> that traverse the grid's user-defined start and end positions.</p>
           <p>The webpage displays the process step by step, and then highlights the shortest possible route indicated.</p>
       </div>
     </div>
     
 <script type="text/javascript">
   $(document).ready(function() {
-    Tipped.create('.project-tooltip');
-    Tipped.create('.algorithm-tooltip', "Breadth First, Depth First, Best First, and A*", {
-  skin: 'light',
-  position: 'topleft',
-  close: true,
-  hideOn: false,
-  onShow: function(content, element) {
-    $(element).addClass('highlight');
-  },
-  afterHide: function(content, element) {
-    $(element).removeClass('highlight');
-  }
-});
-  });
+    Tipped.create('.project-tooltip', "Created with HTML/CSS/JavaScript and JQuery");
+    Tipped.create('.algorithm-tooltip', "Breadth First, Depth First, Best First, and A*");
 </script>
 
     <div id="alert_placeholder"></div>
