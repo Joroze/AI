@@ -269,8 +269,13 @@ var findShortestPath = function(startCell, myTableArray) {
   }
 
 
-  // No valid path found
-showalert("<strong>Hmmm...</strong> It looks like the end point <strong>cannot</strong> be found.", "alert-warning");
+    // No valid path found
+    if (finishCell == null)
+    {
+      showalert("<strong>Hmmm...</strong> It looks like the end point <strong>cannot</strong> be found.", "alert-warning");
+    } else {
+      showalert("<strong>Hmmm...</strong> It looks like the end point <strong>cannot</strong> be reached.", "alert-warning");
+    }
   return false;
 
 };
