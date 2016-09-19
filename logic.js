@@ -110,7 +110,7 @@ function generateArray() {
   
   if (rows != cols)
   {
-    showalert("<strong>Error!</strong> The <strong>Rows</strong> and <strong>Columns</strong> fields must have equal values.", "alert-danger");
+    showalert("<strong>Error!</strong> The <strong>Rows</strong> and <strong>Columns</strong> fields must have <strong>equal</strong> values.", "alert-danger");
     return;
   }
   
