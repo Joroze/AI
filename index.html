@@ -80,10 +80,16 @@
 
     <div class="jumbotron">
       <div class="container">
-        <h1>AI Programming: Project 2</h1>
-        <p>Create a dynamic 2D array (a 2D world) using HTML, CSS, &amp; JavaScript and set randomly, but specifically generated obstacles based on concentration percentage.</p>
+        <h1>AI Programming</h1>
+        <p>This <span class="simple-tooltip" title="Created with HTML/CSS/JavaScript and JQuery">project</span> creates and displays a user-defined dynamic 2D array grid where the user can define the grid size and percent of randomly generated obstacles within it. The user is then be given a choice of algorithms such as Breadth First, that traverse the grid's user-defined start and end positions. The webpage displays how the algorithm works step by step, and then highlights the shortest possible route indicated by the selected algorithm.</p>
       </div>
     </div>
+    
+<script type="text/javascript">
+  $(document).ready(function() {
+    Tipped.create('.simple-tooltip');
+  });
+</script>
 
     <div id="alert_placeholder"></div>
 
