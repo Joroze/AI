@@ -105,6 +105,9 @@ function dumpArray() {
 
 function generateArray() {
   
+  startCell=null;
+  finishCell=null;
+  
   rows = $("#rows-field").val();
   cols = $("#cols-field").val();
   
