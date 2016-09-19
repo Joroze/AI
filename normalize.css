@@ -589,7 +589,12 @@ td.red {
 }
 
 td.blue {
-  background-color: blue;
+  background-color: rgb(99, 127, 222);
+  cursor: pointer;
+}
+
+td.yellow {
+  background-color: yellow;
   cursor: pointer;
 }
 
@@ -612,10 +617,7 @@ td.blue {
   background-color: rgba(255, 255, 255, 0.94);
 }
 
-.alert-danger {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
+.alert {
   text-align: center;
 }
 
