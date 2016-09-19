@@ -104,11 +104,20 @@ function dumpArray() {
 }
 
 function generateArray() {
+  
+  rows = $("#rows-field").val();
+  cols = $("#cols-field").val();
+  
+  if (rows != cols)
+  {
+    showalert("<strong>Error!</strong> The <strong>Rows</strong> and <strong>Columns</strong> fields must have equal values.", "alert-danger");
+    return;
+  }
+  
   $("#viewArrayBtn").removeClass("disabled");
   $("#traverseBtn").removeClass("disabled");
   selectStack = 0;
-  rows = $("#rows-field").val();
-  cols = $("#cols-field").val();
+
 
   if (rows == "" && cols == "") {
     showalert("<strong>Error!</strong> The <strong>Rows</strong> and <strong>Columns</strong> fields are empty.", "alert-danger");
