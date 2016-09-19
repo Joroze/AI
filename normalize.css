@@ -530,8 +530,9 @@ textarea {
 }
 
 #table {
-  display: inline-block;
-  border: 2px outset gray;
+  border: 1px outset gray;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #table tr {
