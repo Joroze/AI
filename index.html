@@ -1,148 +1,145 @@
 <!doctype html>
 <html lang="en">
-    
-<body style="background-color:black;">
-    
-<head>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<body style="background-color:black;">
+
+  <head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 
     <!-- Latest compiled and minified CSS & JS -->
-    <link rel="stylesheet" media="screen"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Joroze</title>
     <meta name="description" content="">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
-    
+
+    <script src="logic.js"></script>
     <link href="normalize.css" rel="stylesheet" />
-    
-</head>
-<body>
-    
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-    
-    <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://joroze.com/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
-<p class="navbar-text navbar-left"><span class="blinking">Updated: </span> 9/18/2016 - <a href="javascript:" class="navbar-link">Jordan Rosenberg</a>'s project page</p>
-  
-</div>
-    
+          <a class="navbar-brand" href="http://joroze.com/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+          <p class="navbar-text navbar-left"><span class="blinking">Updated: </span> 9/18/2016 - <a href="javascript:" class="navbar-link">Jordan Rosenberg</a>'s project page</p>
+
+        </div>
+
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href='javascript:' class="dropdown-toggle" data-toggle="dropdown"
-                       role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-info-sign
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href='javascript:' class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-info-sign
 " aria-hidden="true"></span><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-header">Contact</li>
-                        <li><a href="mailto:roseje57@oneonta.edu"><span class="glyphicon glyphicon-envelope
+              <ul class="dropdown-menu">
+                <li class="dropdown-header">Contact</li>
+                <li><a href="mailto:roseje57@oneonta.edu"><span class="glyphicon glyphicon-envelope
 " aria-hidden="true"></span> Email</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="disabled"><a href='javascript:'><span class="glyphicon glyphicon-lamp
+                <li role="separator" class="divider"></li>
+                <li class="disabled"><a href='javascript:'><span class="glyphicon glyphicon-lamp
 " aria-hidden="true"></span> Blog</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="http://joroze.com/JResume/"><span class="glyphicon glyphicon-folder-open
+                <li role="separator" class="divider"></li>
+                <li><a href="http://joroze.com/JResume/"><span class="glyphicon glyphicon-folder-open
 " aria-hidden="true"></span> Archived Website</a></li>
 
-                    </ul>
-                </li>
-            </ul>
+              </ul>
+            </li>
+          </ul>
 
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="https://www.linkedin.com/in/jordan-rosenberg-aa223aba">LinkedIn</a>
-                </li>
-                <li><a href="https://github.com/Joroze">GitHub</a></li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>    
-    
-    
-    
-<div class="jumbotron">
-  <div class="container">
-  <h1>AI Programming: HW 1 - Part 1</h1>
-  <p>Create a dynamic 2D array (a 2D world) using HTML, CSS, &amp; JavaScript and set randomly, but specifically generated obstacles based on concentration percentage.</p>
-  </div>
-</div>    
-
-<div id="alert_placeholder"></div>
-    
-<div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">Rows</span>
-  <input type="text" class="form-control" id="rows-field" value="5" placeholder="How many rows?" aria-describedby="basic-addon1">
-  <span class="input-group-addon" id="basic-addon1">Cols</span>
-  <input type="text" class="form-control" id="cols-field" value="5" placeholder="How many columns?" aria-describedby="basic-addon1">
-</div>
-
-<br>
-
-<div class="input-group-sm">
-  <span class="input-group-addon" id="basic-addon1">Concentration %</span>
-  <input type="text" class="form-control" id="concentration-field" placeholder="% of Black Tiles" aria-describedby="basic-addon1">
-</div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://www.linkedin.com/in/jordan-rosenberg-aa223aba">LinkedIn</a>
+            </li>
+            <li><a href="https://github.com/Joroze">GitHub</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
 
 
+    <div class="jumbotron">
+      <div class="container">
+        <h1>AI Programming: HW 1 - Part 1</h1>
+        <p>Create a dynamic 2D array (a 2D world) using HTML, CSS, &amp; JavaScript and set randomly, but specifically generated obstacles based on concentration percentage.</p>
+      </div>
+    </div>
 
-<br>
-          <p class="text-center"><a class="btn btn-info" onclick="generateArray();" target="_blank"
-                                       role="button"> Generate Array</a></p>
-                                       <br>
+    <div id="alert_placeholder"></div>
 
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Rows</span>
+      <input type="text" class="form-control" id="rows-field" value="5" placeholder="How many rows?" aria-describedby="basic-addon1">
+      <span class="input-group-addon" id="basic-addon1">Cols</span>
+      <input type="text" class="form-control" id="cols-field" value="5" placeholder="How many columns?" aria-describedby="basic-addon1">
+    </div>
+
+    <br>
+
+    <div class="input-group-sm">
+      <span class="input-group-addon" id="basic-addon1">Concentration %</span>
+      <input type="text" class="form-control" id="concentration-field" placeholder="% of Black Tiles" aria-describedby="basic-addon1">
+    </div>
+    <br>
+
+    <div class="container">
+      
 <div class="text-center">
-<strong id="log"></strong>
+ <div class="btn-group" id="btnPanel" role="group" aria-label="btnPanel">
+  <button type="button" id="traverseBtn" class="btn btn-danger disabled" onclick="traverse();" target="_blank">Traverse</button>
+  <button type="button" id="generateArrayBtn" class="btn btn-info" onclick="generateArray();" target="_blank">Generate Array</button>
+  <button type="button" id="viewArrayBtn" class="btn btn-default disabled" data-toggle="modal" data-target="#myModal">View Data</button>
+ </div>
 </div>
 
-<div class="container">
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
 
-  
-  <!-- Trigger the modal with a button -->
-  <p class="text-center"><button type="button" id="viewArrayBtn" class="btn btn-default" data-toggle="modal" data-target="#myModal">View Data</button></p>
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">2D Array Data</h4>
+            </div>
+            <div class="modal-body">
+              <p id="arrayModalText"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">2D Array Data</h4>
-        </div>
-        <div class="modal-body">
-          <p id="arrayModalText">Generate an Array first!</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
+
     </div>
-  </div>
-  
-</div>
+    
+        <div class="text-center">
+      <strong id="log"></strong>
+    </div>
 
-<table id="table"></table>
+    <table id="table"></table>
 
-<script src="logic.js"></script>
+  </body>
 
-</body>
 </html>
