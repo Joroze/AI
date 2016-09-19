@@ -90,6 +90,8 @@ function dumpArray() {
         td.className = "red";
       } else if (myTableArray[i][j].getColor() == "blue") {
         td.className = "blue";
+      } else if (myTableArray[i][j].getColor() == "yellow") {
+        td.className = "yellow";
       } else {
         td.className = "black";
       }
@@ -268,7 +270,7 @@ var findShortestPath = function(startCell, myTableArray) {
 
 
   // No valid path found
-showalert("<strong>Error!</strong> An end point <strong>cannot</strong> be found.", "alert-danger");
+showalert("<strong>Hmmm...</strong> It looks like the end point <strong>cannot</strong> be found.", "alert-warning");
   return false;
 
 };
@@ -291,7 +293,7 @@ var locationStatus = function(location, myTableArray) {
     // location is not on the grid--return false
     return 'Invalid';
   } else if (myTableArray[dft][dfl].getColor() == "red") {
-    alert("Goal FOUND");
+     showalert("<strong>Done!</strong> A path has been <strong>created</strong>.", "alert-success");
     return 'Goal';
   } else if (myTableArray[dft][dfl].getColor() != "white") {
     // location is either an obstacle or has been visited
@@ -353,7 +355,7 @@ var exploreInDirection = function(currentLocation, direction, myTableArray) {
 
 function traverse() {
   if ($("#traverseBtn").hasClass('disabled'))   {
-    showalert("<strong>Error!</strong> You must <strong>generate</strong> a 2D Array grid first.", "alert-danger");
+    showalert("<strong>Error!</strong> You must <strong>generate</strong> a new 2D Array grid first.", "alert-danger");
     return;
   }
   
@@ -368,10 +370,18 @@ function traverse() {
   $("#traverseBtn").addClass("disabled");
 }
 
-function highlightPath(newLocation, myTableArray)  {
-  for (var i = 0; i < newLocation.pathCoord.length; i++) {
-  alert(newLocation.pathCoord[i]);
+function highlightPath(newLocation)  {
+  var highlightedRow;
+  var highlightedCol;
+
+  for (var i = 2; i < newLocation.pathCoord.length - 1; i++) {
+            highlightedRow = newLocation.pathCoord[i][0];
+            highlightedCol = newLocation.pathCoord[i][1];
+    
+            myTableArray[highlightedRow][highlightedCol].setColor("yellow");
 }
+  
+  dumpArray();
 }
 
  $(".btn").on("click", function (event) {         
