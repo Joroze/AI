@@ -355,7 +355,7 @@ var exploreInDirection = function(currentLocation, direction, myTableArray) {
 
 function traverse() {
   if ($("#traverseBtn").hasClass('disabled'))   {
-    showalert("<strong>Error!</strong> You must <strong>generate</strong> a new 2D Array grid first.", "alert-danger");
+    showalert("<strong>Error!</strong> You must <strong>generate</strong> a <strong>new</strong> 2D Array grid first.", "alert-danger");
     return;
   }
   
