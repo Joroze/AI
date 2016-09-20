@@ -571,7 +571,7 @@ td.deny {
 
 td.white {
   background-color: white;
-  cursor: url(link.cur), auto;
+  cursor: pointer;
 }
 
 td.black {
@@ -581,7 +581,7 @@ td.black {
 
 td.green {
   background-color: green;
-  cursor: url(link.cur), auto;
+  cursor: pointer;
 }
 
 td.greenDeny {
@@ -591,7 +591,7 @@ td.greenDeny {
 
 td.red {
   background-color: red;
-  cursor: url(link.cur), auto;
+  cursor: pointer;
 }
 
 td.blue {
