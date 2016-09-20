@@ -571,7 +571,7 @@ td.deny {
 
 td.white {
   background-color: white;
-  cursor: pointer;
+  cursor: url(link.cur), auto;
 }
 
 td.black {
@@ -581,7 +581,7 @@ td.black {
 
 td.green {
   background-color: green;
-  cursor: pointer;
+  cursor: url(link.cur), auto;
 }
 
 td.greenDeny {
@@ -591,7 +591,7 @@ td.greenDeny {
 
 td.red {
   background-color: red;
-  cursor: pointer;
+  cursor: url(link.cur), auto;
 }
 
 td.blue {
@@ -601,7 +601,7 @@ td.blue {
 
 td.yellow {
   background-color: yellow;
-  cursor:url(http://orig15.deviantart.net/907f/f/2009/262/c/2/the_cursor_got_mad_by_madb0y.gif),auto;
+  cursor: url(normal.cur), auto;
 }
 
 .input-group-sm>.form-control,
