@@ -178,11 +178,16 @@ $(document).on({
     if (selectStack == 2 && myTableArray[hovered_row][hovered_col].getColor() == "white") {
       $(this).addClass('deny');
     }
+    
+    else if (selectStack == 2 && myTableArray[hovered_row][hovered_col].getColor() == "green") {
+      $(this).addClass('greenDeny');
+    }
 
   },
   mouseleave: function() {
     //stuff to do on mouse leave
     $(this).removeClass('deny');
+    $(this).removeClass('greenDeny');    
   }
 }, "td"); //pass the element as an argument to .on
 
@@ -202,14 +207,10 @@ $(document).on('click', "td", function(event) {
       finishCell = myTableArray[selected_row][selected_col];
       selectStack++;
     }
-      else {
-$("#table").pulse({opacity: 0.8}, {duration : 100, pulses : 5});
-      }
 
   } else if ($(this).hasClass('green')) {
     if (selectStack > 1) {
       showalert("<strong>Error!</strong> Remove the  <strong>red</strong> block first!", "alert-danger");
-
       return;
     }
     myTableArray[selected_row][selected_col].setColor("white")
