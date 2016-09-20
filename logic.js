@@ -122,9 +122,9 @@ function generateArray() {
     return;
   }
   
-  if (isMobile == true && cols > 10)
+  if (isMobile == true && cols > 10) {
     showalert("<strong>Warning!</strong> Mobile devices may not display the grid correctly if the <strong>Rows</strong> and <strong>Columns</strong> field values are <strong>greater</strong> than 10.", "alert-warning");
-}
+  }
   
   $("#viewArrayBtn").removeClass("disabled");
   $("#traverseBtn").removeClass("disabled");
