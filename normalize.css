@@ -623,6 +623,11 @@ td.yellow {
   background-color: rgba(255, 255, 255, 0.94);
 }
 
+.jumbotron .h1, .jumbotron h1 {
+    color: inherit;
+    text-shadow: 0 4px 0 rgba(0,0,0,.1);
+}
+
 .alert {
   text-align: center;
 }
@@ -664,4 +669,10 @@ td.yellow {
 
 .modal p {
   word-wrap: break-word;
+}
+
+span.project-tooltip, span.algorithm-tooltip {
+    color: #437b96;
+    text-decoration: underline;
+    text-shadow: 0 2px 0 rgba(0,0,0,.1);
 }
