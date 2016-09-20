@@ -584,6 +584,11 @@ td.green {
   cursor: pointer;
 }
 
+td.greenDeny {
+  background-color: green;
+  cursor: not-allowed;
+}
+
 td.red {
   background-color: red;
   cursor: pointer;
