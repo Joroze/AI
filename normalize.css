@@ -601,7 +601,7 @@ td.blue {
 
 td.yellow {
   background-color: yellow;
-  cursor: pointer;
+  cursor:url(http://orig15.deviantart.net/907f/f/2009/262/c/2/the_cursor_got_mad_by_madb0y.gif),auto;
 }
 
 .input-group-sm>.form-control,
