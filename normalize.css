@@ -638,7 +638,7 @@ td.yellow {
 
 .navbar-inverse .navbar-hovertext:hover {
   text-decoration: none;
-  mouse: pointer;
+  cursor: pointer;
 }
 
 .navbar-inverse .navbar-hovertext {
