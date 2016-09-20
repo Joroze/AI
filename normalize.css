@@ -565,8 +565,7 @@ textarea {
 }
 
 td.deny {
-  cursor: not-allowed !important;
-  background-color: white !important;
+  cursor: default !important;
 }
 
 td.white {
