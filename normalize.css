@@ -586,7 +586,7 @@ td.green {
 
 td.greenDeny {
   background-color: green;
-  cursor: not-allowed;
+  cursor: url(unavailable.cur), auto;
 }
 
 td.red {
