@@ -211,7 +211,6 @@ $(document).on('click', "td", function(event) {
   } else if ($(this).hasClass('green')) {
     if (selectStack > 1) {
       showalert("<strong>Error!</strong> Remove the  <strong>red</strong> block first!", "alert-danger");
-      $(this).addClass("greenError").delay(1000).removeClass("greenError");
       return;
     }
     myTableArray[selected_row][selected_col].setColor("white")
