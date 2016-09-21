@@ -670,9 +670,12 @@ td.yellow {
   word-wrap: break-word;
 }
 
+span.project-tooltip:hover, span.algorithm-tooltip:hover {
+    text-decoration: underline;
+}
+
 span.project-tooltip, span.algorithm-tooltip {
     color: #437b96;
-    text-decoration: underline;
     text-shadow: 0 2px 0 rgba(0,0,0,.1);
 }
 
