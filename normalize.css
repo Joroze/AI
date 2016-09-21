@@ -20,6 +20,7 @@ html {
  */
 
 body {
+  overflow: hidden;
   padding-top: 35px;
   padding-bottom: 350px;
   url(headphones.jpg) no-repeat center center fixed -webkit-background-size: cover;
