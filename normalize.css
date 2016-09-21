@@ -709,3 +709,7 @@ span.project-tooltip, span.algorithm-tooltip {
   margin: -100px 0 0 -100px;
   /* is width and height divided by two */
 }
+
+.input-group-addon {
+  cursor: default;
+}
