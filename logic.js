@@ -67,6 +67,20 @@ function showalert(message, alerttype) {
   }, 5000);
 }
 
+function showGridInputAlert(alertType, time) {
+  
+      $("#cols-div").addClass(alertType);
+      $("#rows-div").addClass(alertType);
+  
+  setTimeout(function() {
+      $("#cols-div").removeClass(alertType);
+      $("#rows-div").removeClass(alertType);
+
+  }, time);
+  
+}
+
+
 function BreadthFirst() {
 
 }
@@ -121,15 +135,12 @@ function generateArray() {
   
   rows = $("#rows-field").val();
   cols = $("#cols-field").val();
-  
-  if (rows != cols)
-  {
-    showalert("<strong>Error!</strong> The <strong>Rows</strong> and <strong>Columns</strong> fields must have <strong>equal</strong> values.", "alert-danger");
-    return;
-  }
+  concentration = $("#concentration-field").val();
   
   if (isMobile == true && cols > 10) {
     showalert("<strong>Warning!</strong> Mobile devices may not display the grid correctly if the <strong>Rows</strong> and <strong>Columns</strong> field values are <strong>greater</strong> than 10.", "alert-warning");
+    
+    showGridInputAlert("has-warning", 2000);
   }
   
   $("#viewArrayBtn").removeClass("disabled");
@@ -139,16 +150,87 @@ function generateArray() {
 
   if (rows == "" && cols == "") {
     showalert("<strong>Error!</strong> The <strong>Rows</strong> and <strong>Columns</strong> fields are empty.", "alert-danger");
-  } else {
-    if (rows == "") {
+    
+    showGridInputAlert("has-error", 2000);
+    
+    return;
+  } 
+  else if (rows == "") {
       showalert("<strong>Error!</strong> The <strong>Rows</strong> field is empty.", "alert-danger");
+      
+      $("#rows-div").addClass("has-error");
+  
+  setTimeout(function() {
+      $("#rows-div").removeClass("has-error");
+
+  }, 2000);
+    
+      return;
     }
 
-    if (cols == "") {
+   else if (cols == "") {
       showalert("<strong>Error!</strong> The <strong>Columns</strong> field is empty.", "alert-danger");
+      
+            $("#cols-div").addClass("has-error");
+  
+  setTimeout(function() {
+      $("#cols-div").removeClass("has-error");
+
+  }, 2000);
+      
+     return;
     }
+  
+    else if (rows != cols)
+  {
+    showalert("<strong>Error!</strong> The <strong>Rows</strong> and <strong>Columns</strong> fields must have <strong>equal</strong> values.", "alert-danger");
+    
+    showGridInputAlert("has-error", 2000);
+    
+    return;
   }
-  concentration = $("#concentration-field").val();
+  
+  if (rows < 0 || rows > 100)
+    {
+      showalert("<strong>Error!</strong> The <strong>Rows</strong> field must a <strong>value</strong>  between 0 and 100.", "alert-danger");
+      
+    $("#rows-div").addClass("has-error");
+  
+  setTimeout(function() {
+      $("#rows-div").removeClass("has-error");
+
+  }, 2000);
+      
+      return;
+    }
+  
+  if (cols < 0 || cols > 100)  
+    {
+      showalert("<strong>Error!</strong> The <strong>Columns</strong> field must a <strong>value</strong>  between 0 and 100.", "alert-danger");
+      
+    $("#cols-div").addClass("has-error");
+  
+  setTimeout(function() {
+      $("#cols-div").removeClass("has-error");
+
+  }, 2000);
+      
+      return;
+    }
+  
+  if (concentration < 0 || concentration > 100)
+    {
+          showalert("<strong>Error!</strong> The <strong>Concentration</strong> field must a <strong>value</strong>  between 0 and 100.", "alert-danger");
+      
+    $("#concentration-div").addClass("has-error");
+  
+  setTimeout(function() {
+      $("#concentration-div").removeClass("has-error");
+
+  }, 2000);
+      
+      return;
+    }
 
   myTableArray = [];
   var color;
