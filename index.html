@@ -108,28 +108,31 @@
    
        <div id="alert_placeholder"></div>
       
+          <form class="form-inline">
       <div class="row">
   <div class="col-lg-6 col-xs-6">
-    <div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">Rows</span>
-      <input type="text" class="form-control form-control-warning" id="rows-field" value="10" placeholder="#" aria-describedby="basic-addon1">
+       <div class="input-group" id="rows-div">
+  <span class="input-group-addon">Rows</span>
+      <input type="number" min="0" class="form-control form-control-warning" id="rows-field" value="10" placeholder="#" required>
     </div>
   </div>
   <div class="col-lg-6 col-xs-6">
-    <div class="input-group">
-          <span class="input-group-addon" id="basic-addon1">Cols</span>
-      <input type="text" class="form-control form-control-warning" id="cols-field" value="10" placeholder="#" aria-describedby="basic-addon2">
+       <div class="input-group" id="cols-div">
+          <span class="input-group-addon">Cols</span>
+      <input type="number" min="0" class="form-control form-control-warning" id="cols-field" value="10" placeholder="#" required>
+
     </div>
+    
   </div>
         
         
         
 </div>
-      
+            </form>
           <br>
-       <div class="input-group-sm">
-      <span class="input-group-addon" id="basic-addon1">Concentration %</span>
-      <input type="text" class="form-control" id="concentration-field" value="25" placeholder="% of Black Tiles" aria-describedby="basic-addon3">
+       <div class="input-group-sm" id="concentration-div">
+      <span class="input-group-addon">Concentration %</span>
+      <input type="number" min="0" max="100" class="form-control" id="concentration-field" value="25" placeholder="% of Black Tiles" required>
       </div>
       
     </div>
@@ -180,3 +183,4 @@
   </body>
 
 </html>
+
