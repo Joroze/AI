@@ -136,6 +136,12 @@ function dumpArray() {
 
 function generateArray() {
   
+    if ($("#generateArrayBtn").hasClass('disabled'))   {
+    showalert("<strong>Error!</strong> You must <strong>wait</strong> until the graph search finishes.", "alert-danger");
+    return;
+  }
+  
+  
   startCell=null;
   finishCell=null;
   
@@ -325,6 +331,9 @@ $(document).ready(function blink() {
 // Start location will be in the following format:
 // [distanceFromTop, distanceFromLeft]
 var findShortestPath = function(startCell, myTableArray) {
+	
+	
+	
   var distanceFromTop = startCell[0];
   var distanceFromLeft = startCell[1];
 
@@ -343,6 +352,8 @@ var findShortestPath = function(startCell, myTableArray) {
   
   (function theLoop() {
   setTimeout(function () {
+	  
+	  
  // Take the first location off the queue
     var currentLocation = queue.shift();
 
@@ -396,7 +407,7 @@ var findShortestPath = function(startCell, myTableArray) {
     
 	}
 	
-  }, 100);
+  }, 75);
 })();
   
 
@@ -491,6 +502,7 @@ var exploreInDirection = function(currentLocation, direction, myTableArray) {
 // Think of the second index as "distance from the left-most column"
 
 function traverse() {
+	
   if ($("#traverseBtn").hasClass('disabled'))   {
     showalert("<strong>Error!</strong> You must <strong>generate</strong> a <strong>new</strong> 2D Array grid first.", "alert-danger");
     return;
@@ -501,13 +513,18 @@ function traverse() {
      showalert("<strong>Error!</strong> You must <strong>place</strong> a <strong>start position</strong> on the 2D Array grid first.", "alert-danger");
     return;
     }
+	
+  
   
   findShortestPath([startCell.getRow(),startCell.getCol   ()], myTableArray);
   
   $("#traverseBtn").addClass("disabled");
+    $("#generateArrayBtn").addClass("disabled");	
 }
 
 function highlightPath(newLocation)  {
+	
+	
   var highlightedRow;
   var highlightedCol;
   
@@ -525,6 +542,9 @@ function highlightPath(newLocation)  {
       theLoop(i);       // Call the loop again, and pass it the current value of i
     }
 	
+	else if (i >= 0)
+		$("#generateArrayBtn").removeClass("disabled");
+	
 	else
 		i++;
 	
@@ -534,7 +554,7 @@ function highlightPath(newLocation)  {
 
 
 
-  
+    
 
 }
 
