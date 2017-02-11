@@ -399,14 +399,11 @@ var findShortestPath = function(startCell, myTableArray) {
       theLoop();       
     }
 	
-	if (queue.length == 0)
+	if (queue.length == 0 && newLocation.status != 'white')
 	{
-		// if "white", the location is either an obstacle or has been visited
-		if (newLocation.status != 'white')
-		{
-			showalert("<strong>Hmmm...</strong> It looks like the end point <strong>cannot</strong> be reached.", "alert-warning");
-		        
-		}
+            // if "white", the location is either an obstacle or has been visited
+            showalert("<strong>Hmmm...</strong> It looks like the end point <strong>cannot</strong> be reached.", "alert-warning");
+	    $("#generateArrayBtn").removeClass("disabled");    
 	}
 	
   }, 75);
@@ -416,8 +413,7 @@ var findShortestPath = function(startCell, myTableArray) {
     // No valid path found
     if (finishCell == null)
     {
-      showalert("<strong>Hmmm...</strong> It looks like the end point <strong>cannot</strong> be found.", "alert-warning");
-      $("#generateArrayBtn").removeClass("disabled");    
+      showalert("<strong>Hmmm...</strong> It looks like you did not place an <strong>end point</strong>.", "alert-warning");  
     } 
 
   return false;
