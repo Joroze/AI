@@ -403,8 +403,10 @@ var findShortestPath = function(startCell, myTableArray) {
 	{
 		// if "white", the location is either an obstacle or has been visited
 		if (newLocation.status != 'white')
+		{
 			showalert("<strong>Hmmm...</strong> It looks like the end point <strong>cannot</strong> be reached.", "alert-warning");
-    
+		        
+		}
 	}
 	
   }, 75);
@@ -415,6 +417,7 @@ var findShortestPath = function(startCell, myTableArray) {
     if (finishCell == null)
     {
       showalert("<strong>Hmmm...</strong> It looks like the end point <strong>cannot</strong> be found.", "alert-warning");
+      $("#generateArrayBtn").removeClass("disabled");    
     } 
 
   return false;
