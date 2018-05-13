@@ -1,3 +1,5 @@
-# AI Projects
+# ai.joroze.com
 
-http://joroze.github.io/AI
+### Jordan's experimental "AI" web app built using JavaScript
+
+You can demo the web app [here](http://ai.joroze.com).
